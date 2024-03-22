@@ -1,13 +1,13 @@
-const Discord = require('discord.js');
+const { Client, Intents } = require('discord.js');
 
 // Define intents for the bot
-const intents = new Discord.Intents([
-    Discord.Intents.FLAGS.GUILDS, // include GUILDS intent
-    Discord.Intents.FLAGS.GUILD_MESSAGES // include GUILD_MESSAGES intent
+const intents = new Intents([
+    Intents.FLAGS.GUILDS, // include GUILDS intent
+    Intents.FLAGS.GUILD_MESSAGES // include GUILD_MESSAGES intent
 ]);
 
 // Create the first bot client
-const client1 = new Discord.Client({ intents });
+const client1 = new Client({ intents });
 
 // Event: First bot is ready
 client1.once('ready', () => {
@@ -15,10 +15,10 @@ client1.once('ready', () => {
     
     // Set the first bot's status
     client1.user.setPresence({
-        activity: {
+        activities: [{
             name: 'First bot status',
             type: 'PLAYING' // Possible types: 'PLAYING', 'WATCHING', 'LISTENING', 'STREAMING'
-        },
+        }],
         status: 'online' // Possible statuses: 'online', 'idle', 'dnd', 'invisible'
     });
 });
@@ -27,7 +27,7 @@ client1.once('ready', () => {
 client1.login(process.env.TOKEN1);
 
 // Create the second bot client
-const client2 = new Discord.Client({ intents });
+const client2 = new Client({ intents });
 
 // Event: Second bot is ready
 client2.once('ready', () => {
@@ -35,10 +35,10 @@ client2.once('ready', () => {
     
     // Set the second bot's status
     client2.user.setPresence({
-        activity: {
+        activities: [{
             name: 'Second bot status',
             type: 'PLAYING' // Possible types: 'PLAYING', 'WATCHING', 'LISTENING', 'STREAMING'
-        },
+        }],
         status: 'online' // Possible statuses: 'online', 'idle', 'dnd', 'invisible'
     });
 });
