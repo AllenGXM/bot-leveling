@@ -2,8 +2,8 @@ const Discord = require('discord.js');
 
 // Define intents for the bot
 const intents = new Discord.Intents([
-    Discord.Intents.NON_PRIVILEGED, // include all non-privileged intents, would be better to specify which ones your bot really needs
-    'GUILD_MEMBERS', // include the GUILD_MEMBERS intent, which is privileged
+    Discord.Intents.FLAGS.GUILDS, // include GUILDS intent
+    Discord.Intents.FLAGS.GUILD_MESSAGES // include GUILD_MESSAGES intent
 ]);
 
 // Create the first bot client
