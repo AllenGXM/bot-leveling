@@ -17,8 +17,8 @@ client1.once('ready', () => {
     });
 });
 
-// Run the first bot with its Discord bot token
-client1.login('YOUR_FIRST_DISCORD_BOT_TOKEN');
+// Run the first bot with its Discord bot token from environment variable TOKEN1
+client1.login(process.env.TOKEN1);
 
 // Create the second bot client
 const client2 = new Discord.Client();
@@ -37,5 +37,5 @@ client2.once('ready', () => {
     });
 });
 
-// Run the second bot with its Discord bot token
-client2.login('YOUR_SECOND_DISCORD_BOT_TOKEN');
+// Run the second bot with its Discord bot token from environment variable TOKEN2
+client2.login(process.env.TOKEN2);
