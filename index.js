@@ -1,7 +1,13 @@
 const Discord = require('discord.js');
 
+// Define intents for the bot
+const intents = new Discord.Intents([
+    Discord.Intents.NON_PRIVILEGED, // include all non-privileged intents, would be better to specify which ones your bot really needs
+    'GUILD_MEMBERS', // include the GUILD_MEMBERS intent, which is privileged
+]);
+
 // Create the first bot client
-const client1 = new Discord.Client();
+const client1 = new Discord.Client({ intents });
 
 // Event: First bot is ready
 client1.once('ready', () => {
@@ -21,7 +27,7 @@ client1.once('ready', () => {
 client1.login(process.env.TOKEN1);
 
 // Create the second bot client
-const client2 = new Discord.Client();
+const client2 = new Discord.Client({ intents });
 
 // Event: Second bot is ready
 client2.once('ready', () => {
